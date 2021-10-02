@@ -64,6 +64,7 @@ function authenticator(req, res, next) {
   }
 }
 
+// Login.js: login handler*
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
   if (username === 'lambda' && password === 'school') {
@@ -78,6 +79,7 @@ app.post('/api/login', (req, res) => {
   }
 });
 
+
 app.post('/api/logout', authenticator, (req, res) => {
   req.loggedIn = false;
   res.status(200).json({
@@ -85,11 +87,13 @@ app.post('/api/logout', authenticator, (req, res) => {
   });
 });
 
+
 app.get('/api/friends', authenticator, (req, res) => {
   setTimeout(() => {
     res.send(friends);
   }, 1000);
 });
+
 
 app.get('/api/friends/:id', authenticator, (req, res) => {
   const friend = friends.find(f => f.id == req.params.id);
@@ -101,6 +105,7 @@ app.get('/api/friends/:id', authenticator, (req, res) => {
   }
 });
 
+
 app.post('/api/friends', authenticator, (req, res) => {
   const friend = { id: getNextId(), ...req.body };
 
@@ -109,9 +114,11 @@ app.post('/api/friends', authenticator, (req, res) => {
   res.send(friends);
 });
 
+
 app.get('/api/', (req, res) => {
   res.status(200).json({status: "served"});
 });
+
 
 app.listen(port, () => {
   console.log(`server listening on port ${port}`);
