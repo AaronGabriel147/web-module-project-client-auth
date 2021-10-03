@@ -3,6 +3,7 @@ import React, { Route, Link, Switch } from "react-router-dom";
 import Login from './components/Login';
 import FriendsList from './components/FriendsList';
 import PrivateRoute from './components/PrivateRoute';
+import AddFriends from './components/AddFriends';
 
 
 // README instructions:
@@ -30,10 +31,17 @@ export default function App() {
         <li>
           <Link to="/protected"> PROTECTED PAGE </Link>
         </li>
+        <li>
+          <Link to="/addfriends"> ADD FRIENDS </Link>
+        </li>
       </ul>
 
       <Switch>
+
+        <Route path="/addfriends" component={AddFriends} />
+
         <PrivateRoute exact path="/protected" component={FriendsList} />
+
         <Route path="/login" component={Login} />
         
       </Switch>

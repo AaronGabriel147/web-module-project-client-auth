@@ -13,30 +13,30 @@ let friends = [
     age: 30,
     email: 'rachel@friends.com'
   },
-  {
-    id: 2,
-    name: 'Joey Tribbiani',
-    age: 34,
-    email: 'joey@friends.com'
-  },
-  {
-    id: 3,
-    name: 'Chandler Bing',
-    age: 32,
-    email: 'chandler@friends.com'
-  },
-  {
-    id: 4,
-    name: 'Ross Geller',
-    age: 32,
-    email: 'ross@friends.com'
-  },
-  {
-    id: 5,
-    name: 'Monica Bing',
-    age: 31,
-    email: 'monica@friends.com'
-  },
+  // {
+  //   id: 2,
+  //   name: 'Joey Tribbiani',
+  //   age: 34,
+  //   email: 'joey@friends.com'
+  // },
+  // {
+  //   id: 3,
+  //   name: 'Chandler Bing',
+  //   age: 32,
+  //   email: 'chandler@friends.com'
+  // },
+  // {
+  //   id: 4,
+  //   name: 'Ross Geller',
+  //   age: 32,
+  //   email: 'ross@friends.com'
+  // },
+  // {
+  //   id: 5,
+  //   name: 'Monica Bing',
+  //   age: 31,
+  //   email: 'monica@friends.com'
+  // },
   {
     id: 6,
     name: 'Phoebe Buffay-Hannigan',
@@ -79,7 +79,6 @@ app.post('/api/login', (req, res) => {
   }
 });
 
-
 app.post('/api/logout', authenticator, (req, res) => {
   req.loggedIn = false;
   res.status(200).json({
@@ -87,13 +86,11 @@ app.post('/api/logout', authenticator, (req, res) => {
   });
 });
 
-
 app.get('/api/friends', authenticator, (req, res) => {
   setTimeout(() => {
     res.send(friends);
   }, 1000);
 });
-
 
 app.get('/api/friends/:id', authenticator, (req, res) => {
   const friend = friends.find(f => f.id == req.params.id);
@@ -105,7 +102,6 @@ app.get('/api/friends/:id', authenticator, (req, res) => {
   }
 });
 
-
 app.post('/api/friends', authenticator, (req, res) => {
   const friend = { id: getNextId(), ...req.body };
 
@@ -114,11 +110,9 @@ app.post('/api/friends', authenticator, (req, res) => {
   res.send(friends);
 });
 
-
 app.get('/api/', (req, res) => {
   res.status(200).json({status: "served"});
 });
-
 
 app.listen(port, () => {
   console.log(`server listening on port ${port}`);

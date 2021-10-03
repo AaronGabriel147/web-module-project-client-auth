@@ -40,7 +40,7 @@ x * `cd` into the _friends_ folder and type `npm install axios react-router-dom`
 
   * **[GET]** to `/api/friends`: returns the list of friends.
 
-  * **[GET]** to `/api/friends/123`: returns the friend with the id passed as part of the URL (123 in example).
+  // huh? * **[GET]** to `/api/friends/123`: returns the friend with the id passed as part of the URL (123 in example).
 
   * **[POST]** * to `/api/friends`: Adds in a new friend.
 
@@ -56,19 +56,19 @@ x * `cd` into the _friends_ folder and type `npm install axios react-router-dom`
 
 // DID THIS WITH PRIVATEROUTE!
 [x] * Create a `<PrivateRoute />` component to protect your other routes. It should check localStorage for a token, and redirect the user to your login route if there is not a token.
-
 [x] * Create a protected route for your friends list. Remember, if the user isn't logged in, navigating to this protected route will redirect them to the login page.
 
+// Sorta vague but ok. 
+[x] * In your FriendsList component, rendered with `<ProtectedRoute />`, you will create a list of your friends that you get from the API.
 
-* In your FriendsList component, rendered with `<ProtectedRoute />`, you will create a list of your friends that you get from the API.
 
 
 
 
 **Adding New Friends**
-* Create a form to collects data for a new friend.
-* Make a POST request to add a friend to the database
-* Each `friend` item that is in the `friends` array should have the following format:
+[x] * Create a form to collect data for a new friend.
+[x] * Make a POST request to add a friend to the database
+[x] * Each `friend` item that is in the `friends` array should have the following format:
 
 
 {
@@ -77,3 +77,24 @@ x * `cd` into the _friends_ folder and type `npm install axios react-router-dom`
   age: 24,
   email: 'joe@lambdaschool.com',
 }
+
+
+
+
+
+
+// _______________ My steps I made: ______________
+
+
+// Create a new addFriend component and add it to App.js
+// In addFriend.js create initial state as as:
+[
+  {
+  id: ,
+  name: '',
+  age: ,
+  email: ''
+}
+]
+
+// Once state is create with a form buttom subit, POST the state to the server
